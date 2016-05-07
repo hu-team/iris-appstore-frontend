@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Scaffold for Arvice team",
   "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hu-team/Arvici-Scaffolding.git"
+  },
   "scripts": {
     "test": ""
   },
@@ -17,5 +21,8 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "grunt-contrib-watch": "^0.6.1"
+  },
+  "dependencies": {
+    "angular-sanitize": "^1.5.0"
   }
 }
