@@ -1,1 +1,3 @@
-angular.module('PageController', []);
+angular.module('Arvici').controller('PageController', function() {
+
+});
