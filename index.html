@@ -6,21 +6,20 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="assets/css/bootstrap-material-design.min.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body>
+  <body ng-app="Arvici">
     <header>
       <div class="navbar navbar-default">
-
+        <ul class="nav navbar-nav">
+          <li><a ui-sref="arvici">Home</a></li>
+          <li><a ui-sref="color">Color</a></li>
+        </ul>
       </div>
     </header>
     <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div class="jumbotron">
-              <h1>Arvici</h1>
+            <div ui-view>
 
-              <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-
-              <p><a class="btn btn-primary btn-lg">Learn more</a></p>
             </div>
           </div>
         </div>

@@ -1,1 +1,1 @@
-angular.module('Arvici', []);
+angular.module('Arvici', ['ngSanitize','ui.router']);
