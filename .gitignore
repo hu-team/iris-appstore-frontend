@@ -35,3 +35,5 @@ jspm_packages
 
 *.DS_Store
 .DS_Store
+
+.idea
