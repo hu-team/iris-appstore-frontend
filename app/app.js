@@ -4,10 +4,13 @@ angular.module('Arvici', ['ngSanitize', 'ui.router']);
 
 angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/login");
     $stateProvider.state('arvici', {
         url: "/",
         templateUrl: "view/page/index.html"
+    }).state('login', {
+        url: "/login",
+        templateUrl: "view/page/login.html"
     }).state('hotels', {
         url: "/hotels",
         templateUrl: "view/page/hotels.html"
@@ -24,12 +27,24 @@ angular.module('Arvici').service('hotelService', function ($http, $q) {
 
     var API_PATH = 'http://jsonplaceholder.typicode.com';
 
-    return { getHotels: getHotels };
+    return {
+        getHotels: getHotels,
+        getHotel: getHotel
+    };
 
     function getHotels() {
         var request = $http({
             method: 'GET',
             url: API_PATH + '/posts'
+        });
+
+        return request.then(handleSucces, handleError);
+    }
+
+    function getHotel(id) {
+        var request = $http({
+            method: 'GET',
+            url: API_PATH + '/posts/' + id
         });
 
         return request.then(handleSucces, handleError);
@@ -45,17 +60,24 @@ angular.module('Arvici').service('hotelService', function ($http, $q) {
         return response.data;
     }
 });
+angular.module('Arvici').controller('LoginController', function ($scope, $state) {
+    $scope.submitLogin = function () {
+        $state.go("hotels");
+    };
+});
 angular.module('Arvici').controller('PageController', function ($scope, hotelService) {
 
     loadHotelData();
 
-    function applyHotelData(newHotels) {
-        $scope.hotels = newHotels;
+    function loadHotelData() {
+        hotelService.getHotels().then(function (newHotels) {
+            $scope.hotels = newHotels;
+        });
     }
 
-    function loadHotelData() {
-        hotelService.getHotels().then(function (hotel) {
-            applyHotelData(hotel);
+    function loadHotel(id) {
+        hotelService.getHotel(id).then(function (newHotel) {
+            $scope.hotel = newHotel;
         });
     }
 });

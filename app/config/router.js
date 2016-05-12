@@ -1,10 +1,14 @@
 angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/login");
     $stateProvider
         .state('arvici', {
             url: "/",
             templateUrl: "view/page/index.html"
+        })
+        .state('login', {
+            url: "/login",
+            templateUrl: "view/page/login.html"
         })
         .state('hotels', {
             url: "/hotels",

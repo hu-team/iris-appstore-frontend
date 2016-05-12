@@ -1,12 +1,19 @@
 <div class="jumbotron" ng-controller="PageController">
-    <h1>Hotels</h1>
+    <h1>Apps</h1>
 
-    <p>
-    <ul>
-        <li ng-repeat="hotel in hotels">
-            {{hotel.title}}
-        </li>
-    </ul>
-    </p>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Title</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="hotel in hotels">
+                <td>{{hotel.id}}</td>
+                <td>{{hotel.title}}</td>
+            </tr>
+        </tbody>
+    </table>
 
 </div>
