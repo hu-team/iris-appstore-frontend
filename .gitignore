@@ -38,3 +38,8 @@ jspm_packages
 
 .idea
 node_modules
+
+#Arvici Scaffolding
+build
+src
+assets/js
