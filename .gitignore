@@ -42,4 +42,4 @@ node_modules
 #Arvici Scaffolding
 build
 src
-assets
+assets/js
