@@ -62,13 +62,13 @@ grunt.initConfig({
   less: {
     app: {
       files: {
-        'assets/css/style.css': 'assets/less/**.less'
+        'assets/css/style.css': 'assets/less/app/app.less'
       }
     }
   },
   watch: {
     develop: {
-      files: ['app/*/**', 'assets/less/***'],
+      files: ['app/*/**', 'assets/less/*/**'],
       tasks: ['concat:app', 'babel', 'uglify:app','less:app']
     }
   }
