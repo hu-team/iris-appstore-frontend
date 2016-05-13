@@ -9,8 +9,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="hotel in hotels">
-                <td><a ng-click="stateHotel(hotel.id)">{{hotel.id}}</a></td>
+            <tr ng-repeat="hotel in hotels" ng-click="stateHotel(hotel.id)">
+                <td>{{hotel.id}}</td>
                 <td>{{hotel.title}}</td>
             </tr>
         </tbody>
