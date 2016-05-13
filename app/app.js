@@ -5,6 +5,7 @@ angular.module('Arvici', ['ngSanitize', 'ui.router']);
 angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise("/login");
+
     $stateProvider.state('arvici', {
         url: "/",
         templateUrl: "view/page/index.html"
@@ -14,6 +15,9 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
     }).state('hotels', {
         url: "/hotels",
         templateUrl: "view/page/hotels.html"
+    }).state('hotelinfo', {
+        url: "/hotels/:id",
+        templateUrl: "view/page/hotel.html"
     }).state('color', {
         url: "/color",
         templateUrl: "view/red/red.html",
@@ -60,12 +64,22 @@ angular.module('Arvici').service('hotelService', function ($http, $q) {
         return response.data;
     }
 });
+angular.module('Arvici').controller('HotelController', function ($scope, $stateParams, hotelService) {
+
+    loadHotel($stateParams.id);
+
+    function loadHotel(hotelId) {
+        hotelService.getHotel(hotelId).then(function (newHotel) {
+            $scope.hotel = newHotel;
+        });
+    }
+});
 angular.module('Arvici').controller('LoginController', function ($scope, $state) {
     $scope.submitLogin = function () {
         $state.go("hotels");
     };
 });
-angular.module('Arvici').controller('PageController', function ($scope, hotelService) {
+angular.module('Arvici').controller('PageController', function ($scope, $state, hotelService) {
 
     loadHotelData();
 
@@ -75,9 +89,7 @@ angular.module('Arvici').controller('PageController', function ($scope, hotelSer
         });
     }
 
-    function loadHotel(id) {
-        hotelService.getHotel(id).then(function (newHotel) {
-            $scope.hotel = newHotel;
-        });
-    }
+    $scope.stateHotel = function (hotelId) {
+        $state.go('hotelinfo', { id: hotelId });
+    };
 });

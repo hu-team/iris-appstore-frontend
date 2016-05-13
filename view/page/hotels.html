@@ -10,10 +10,12 @@
         </thead>
         <tbody>
             <tr ng-repeat="hotel in hotels">
-                <td>{{hotel.id}}</td>
+                <td><a ng-click="stateHotel(hotel.id)">{{hotel.id}}</a></td>
                 <td>{{hotel.title}}</td>
             </tr>
         </tbody>
     </table>
+
+
 
 </div>

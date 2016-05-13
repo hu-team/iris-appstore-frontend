@@ -1,6 +1,7 @@
 angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise("/login");
+
     $stateProvider
         .state('arvici', {
             url: "/",
@@ -13,6 +14,10 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
         .state('hotels', {
             url: "/hotels",
             templateUrl: "view/page/hotels.html"
+        })
+        .state('hotelinfo', {
+            url: "/hotels/:id",
+            templateUrl: "view/page/hotel.html"
         })
         .state('color', {
             url: "/color",
