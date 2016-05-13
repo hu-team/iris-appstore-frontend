@@ -11,14 +11,20 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
             url: "/login",
             templateUrl: "view/page/login.html"
         })
-        .state('hotels', {
-            url: "/hotels",
-            templateUrl: "view/page/hotels.html"
+
+        .state('apps', {
+            url: "/apps",
+            templateUrl: "view/page/apps.html"
         })
-        .state('hotelinfo', {
-            url: "/hotels/:id",
-            templateUrl: "view/page/hotel.html"
+        .state('appinfo', {
+            url: "/apps/:id",
+            templateUrl: "view/page/appinfo.html"
         })
+        .state('categories', {
+            url: "/categories",
+            template: "view/page/categories.html"
+        })
+
         .state('color', {
             url: "/color",
             templateUrl: "view/red/red.html",

@@ -1,16 +1,16 @@
-angular.module('Arvici').controller('PageController', function($scope, $state, hotelService) {
-    
-    loadHotelData();
+angular.module('Arvici').controller('PageController', function($scope, $state, appService) {
 
-    function loadHotelData(){
-        hotelService.getHotels().then(function( newHotels ){
-            $scope.hotels = newHotels;
+    loadAppData();
+
+    function loadAppData(){
+        appService.getApps().then(function( response ){
+            $scope.apps = response;
         });
 
     }
 
-    $scope.stateHotel = function( hotelId ){
-        $state.go('hotelinfo', {id: hotelId});
+    $scope.stateApp = function( appId ){
+        $state.go('appinfo', {id: appId});
     };
 
 });

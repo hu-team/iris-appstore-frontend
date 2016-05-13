@@ -5,18 +5,19 @@ angular.module('Arvici', ['ngSanitize', 'ui.router']);
 angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise("/login");
+
     $stateProvider.state('arvici', {
         url: "/",
         templateUrl: "view/page/index.html"
     }).state('login', {
         url: "/login",
         templateUrl: "view/page/login.html"
-    }).state('hotels', {
-        url: "/hotels",
-        templateUrl: "view/page/hotels.html"
-    }).state('hotels.info', {
-        url: "/hotels/{id}",
-        templateUrl: "view/page/hotel.html"
+    }).state('apps', {
+        url: "/apps",
+        templateUrl: "view/page/apps.html"
+    }).state('appinfo', {
+        url: "/apps/:id",
+        templateUrl: "view/page/appinfo.html"
     }).state('color', {
         url: "/color",
         templateUrl: "view/red/red.html",
@@ -26,16 +27,16 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
     });
 });
 
-angular.module('Arvici').service('hotelService', function ($http, $q) {
+angular.module('Arvici').service('appService', function ($http, $q) {
 
     var API_PATH = 'http://jsonplaceholder.typicode.com';
 
     return {
-        getHotels: getHotels,
-        getHotel: getHotel
+        getApps: getApps,
+        getAppById: getAppById
     };
 
-    function getHotels() {
+    function getApps() {
         var request = $http({
             method: 'GET',
             url: API_PATH + '/posts'
@@ -44,7 +45,7 @@ angular.module('Arvici').service('hotelService', function ($http, $q) {
         return request.then(handleSucces, handleError);
     }
 
-    function getHotel(id) {
+    function getAppById(id) {
         var request = $http({
             method: 'GET',
             url: API_PATH + '/posts/' + id
@@ -63,28 +64,32 @@ angular.module('Arvici').service('hotelService', function ($http, $q) {
         return response.data;
     }
 });
+angular.module('Arvici').controller('AppController', function ($scope, $stateParams, appService) {
+
+    loadApp($stateParams.id);
+
+    function loadApp(appId) {
+        appService.getAppById(appId).then(function (response) {
+            $scope.app = response;
+        });
+    }
+});
 angular.module('Arvici').controller('LoginController', function ($scope, $state) {
     $scope.submitLogin = function () {
-        $state.go("hotels");
+        $state.go("apps");
     };
 });
-angular.module('Arvici').controller('PageController', function ($scope, $state, hotelService) {
+angular.module('Arvici').controller('PageController', function ($scope, $state, appService) {
 
-    loadHotelData();
+    loadAppData();
 
-    function loadHotelData() {
-        hotelService.getHotels().then(function (newHotels) {
-            $scope.hotels = newHotels;
+    function loadAppData() {
+        appService.getApps().then(function (response) {
+            $scope.apps = response;
         });
     }
 
-    function getHotel(hotelId) {
-        hotelService.getHotel(id).then(function (newHotel) {
-            $scope.hotel = newHotel;
-        });
-    }
-
-    function loadHotel(hotelId) {
-        $state.go('hotel', { id: hotelId });
-    }
+    $scope.stateApp = function (appId) {
+        $state.go('appinfo', { id: appId });
+    };
 });
