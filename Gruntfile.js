@@ -68,7 +68,7 @@ grunt.initConfig({
   },
   watch: {
     develop: {
-      files: ['app/**/*.js', 'assets/less/***'],
+      files: ['app/*/**', 'assets/less/***'],
       tasks: ['concat:app', 'babel', 'uglify:app','less:app']
     }
   }
