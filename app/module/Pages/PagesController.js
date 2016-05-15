@@ -1,5 +1,5 @@
 angular.module('Arvici').controller('PageController', function($scope, $state, appService) {
-  
+
     loadAppData();
 
     function loadAppData(){

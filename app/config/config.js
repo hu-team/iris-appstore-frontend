@@ -1,1 +1,2 @@
-angular.module('Arvici', ['ngSanitize','ui.router']);
+angular.module('Arvici', ['ngSanitize','ui.router', 'irisloader']);
+ 

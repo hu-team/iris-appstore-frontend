@@ -1,5 +1,4 @@
-angular.module('Arvici').service('appService', function( $http, $q){
-
+angular.module('Arvici').service('appService', ['$http', '$q', function( $http, $q){
     var API_PATH = 'http://jsonplaceholder.typicode.com';
 
     return({
@@ -34,4 +33,4 @@ angular.module('Arvici').service('appService', function( $http, $q){
     function handleSucces( response ){
         return response.data;
     }
-});
+}]);
