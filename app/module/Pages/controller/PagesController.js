@@ -4,7 +4,7 @@ angular.module('Arvici').controller('PageController', function($scope, $state, a
 
     function loadAppData(){
         appService.getApps().then(function( response ){
-            $scope.apps = response;
+            $scope.apps = response.result;
         });
 
     }

@@ -1,15 +1,24 @@
-angular.module('Arvici').service('appService', function( $http, $q){
-
+angular.module('Arvici').service('appService', ['$http', '$q', function ($http, $q) {
     //var API_PATH = 'http://jsonplaceholder.typicode.com';
-    var API_PATH = 'http://10.200.200.17/APPSTORE_OLIVIER_WS/Api';
+    var API_PATH = "http://10.200.200.17/APPSTORE_OLIVIER_WS/Api";
 
-
-    return({
+    return ({
         getApps: getApps,
-        getAppById: getAppById
+        getAppById: getAppById,
+        getCategory: getCategory,
+        addApp: addApp
     });
 
-    function getApps(){
+    function getCategory() {
+        var request = $http({
+            method: "GET",
+            url: API_PATH + '/AppCategory'
+        });
+
+        return (request.then(handleSucces).catch(handleError));
+    }
+
+    function getApps() {
         var request = $http({
             method: 'GET',
             url: API_PATH + '/App'
@@ -19,23 +28,42 @@ angular.module('Arvici').service('appService', function( $http, $q){
         return (request.then(handleSucces, handleError));
     }
 
-    function getAppById( id ){
+    function getAppById(id) {
         var request = $http({
             method: 'GET',
-            url: API_PATH + '/App' + id
+            url: API_PATH + '/App/' + id
             //url: API_PATH + '/posts/' + id
-        });
-
+            });
         return (request.then(handleSucces, handleError));
     }
 
-    function handleError( response ){
-        if(!angular.isObject(response) || !response.data.message ){
-            return($q.reject("An unknown error occurred."));
-        }
+    function addApp( label, code, description ) {
+
+        var request = $http({
+            method: 'POST',
+            url: "http://10.200.200.17/APPSTORE_THIERRY_WS/Api/App",
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            data: {
+                Label: label,
+                Code: code,
+                Description: description
+            }
+        });
+
+        return (request.then(handleSucces, handleError));
+
     }
 
-    function handleSucces( response ){
-        return response.data;
+        function handleError(response) {
+            if (!angular.isObject(response) || !response.message) {
+                return ($q.reject("An unknown error occurred."));
+            }
+        }
+
+        function handleSucces(response) {
+            return response.data;
+        }
     }
-});
+]);

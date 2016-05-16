@@ -1,7 +1,16 @@
-<div class="jumbotron" ng-controller="AppController">
-    <h1>{{app.result.Label}}</h1>
+<div class="well page" ng-controller="AppController">
+    <irisloader-loading></irisloader-loading>
+    <h1>{{app.Label}}</h1>
 
-    <p>{{app.result.Description}}</p>
+    <p>
+        <h2>Code</h2>
+        {{app.Code}}
+    </p>
+
+    <p>
+        <h3>Description</h3>
+        {{app.Description}}
+    </p>
 
     <p><a class="btn btn-primary btn-lg" ui-sref="apps">Terug</a></p>
 </div>

@@ -2,25 +2,25 @@ module.exports = function(grunt) {
 grunt.initConfig({
   concat: {
     app: {
-      src: ['app/*/*.js', 'app/*/*/*.js'],
-      dest: 'app/app.js'
+      src: ['app/*/*.js', 'app/**/*.js'],
+      dest: 'src/Arvici.app.js'
     },
     external: {
-      src: ['external/jquery/*.js', 'external/angular/*.js', 'external/angular-sanitize/*.js', 'external/angular-ui-router/*.js', 'external/bootstrap-material-design/*.js'],
-      dest: 'external/external.js'
+      src: ['lib/jquery/*.js', 'lib/angular/*.js', 'lib/angular-sanitize/*.js', 'lib/angular-ui-router/*.js', 'lib/bootstrap-material-design/*.js'],
+      dest: 'src/vendor.js'
     }
   },
   uglify: {
     app: {
       options: {
         sourceMap: true,
-        beautify: true,
+        beautify: false,
         compress: {
           drop_console: true
         }
       },
       files: {
-        'app/app.min.js': ['app/app.js']
+        'src/Arvici.app.min.js': ['src/Arvici.app.js']
       }
     },
     external: {
@@ -32,17 +32,20 @@ grunt.initConfig({
         }
       },
       files: {
-        'external/external.min.js': ['external/external.js']
+        'src/vendor.min.js': ['src/vendor.js']
       }
     }
   },
   copy: {
     main: {
       files: [{
-        expand: true, src: ['external/external.min.js'], dest: 'build/'
+        expand: true, src: ['src/vendor.min.js'], dest: 'build/'
       },
       {
-        expand: true, src: ['app/*'], dest: 'src/'
+        expand: true, flatten: true, src: ['src/Arvici.app.min.js', 'src/Arvici.app.min.js.map'], dest: 'assets/js/'
+      },
+      {
+        expand: true, flatten: true, src: ['src/vendor.min.js', 'src/vendor.min.js.map'], dest: 'assets/js/'
       }
     ]}
   },
@@ -52,21 +55,21 @@ grunt.initConfig({
 		},
 		dist: {
 			files: {
-				'app/app.js': 'app/app.js'
+				'src/Arvici.app.js': 'src/Arvici.app.js'
 			}
 		}
 	},
   less: {
     app: {
       files: {
-        'assets/css/style.css': 'assets/less/**.less'
+        'assets/css/style.css': 'assets/less/app/app.less'
       }
     }
   },
   watch: {
     develop: {
-      files: ['app/*/**.js', 'app/*/*/*.js', 'assets/less/**'],
-      tasks: ['concat:app', 'babel', 'less:app']
+      files: ['app/*/**', 'assets/less/*/**'],
+      tasks: ['concat:app', 'babel', 'uglify:app','less:app']
     }
   }
 });

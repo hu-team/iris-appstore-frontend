@@ -11,10 +11,13 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
             url: "/login",
             templateUrl: "view/page/login.html"
         })
-
         .state('apps', {
             url: "/apps",
             templateUrl: "view/page/apps.html"
+        })
+        .state('appnew', {
+            url: "/apps/new",
+            templateUrl: "view/page/appnew.html"
         })
         .state('appinfo', {
             url: "/apps/:id",
@@ -24,7 +27,6 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
             url: "/categories",
             template: "view/page/categories.html"
         })
-
         .state('color', {
             url: "/color",
             templateUrl: "view/red/red.html",

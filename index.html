@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Acvici - Scaffold</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="assets/css/bootstrap-material-design.min.css" media="screen" title="no title"
-          charset="utf-8">
+    <link rel="stylesheet" href="assets/css/bootstrap-material-design.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body ng-app="Arvici">
 <header>
@@ -18,14 +18,21 @@
 </header>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-2" ng-controller="CategoriesController" id="CategoryList">
+          <h2>Categories</h2>
+          <ul>
+            <li ng-repeat="item in items">
+              <a ui-sref="apps">{{item.Label}}</a>
+          </ul>
+        </div>
+        <div class="col-md-10">
             <div ui-view>
 
             </div>
         </div>
     </div>
 </div>
-<script src="external/external.js"></script>
-<script src="app/app.js"></script>
+<script src="src/vendor.min.js"></script>
+<script src="src/Arvici.app.js"></script>
 </body>
 </html>
