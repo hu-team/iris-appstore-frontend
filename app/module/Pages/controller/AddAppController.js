@@ -13,9 +13,6 @@ angular.module('Arvici').controller('AddAppController', function($scope, $state,
         }else{
             window.alert("U moet alle velden invullen.");
         }
-
-
-
     };
 
     function isFilledIn(){
