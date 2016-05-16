@@ -1,3 +1,10 @@
+#CategoryList > ul {
+  list-style: none;
+  padding-left: 10px;
+}
+#CategoryList > ul li {
+  margin-bottom: 15px;
+}
 .spinner {
   margin: 100px auto 0;
   width: 70px;

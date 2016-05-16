@@ -12,13 +12,20 @@
     <div class="navbar navbar-default">
         <ul class="nav navbar-nav">
             <li><a ui-sref="arvici">Home</a></li>
-            <li><a ui-sref="apps">Apps</a></li>
         </ul>
     </div>
 </header>
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-2" ng-controller="CategoriesController" id="CategoryList">
+          <h2>Categories</h2>
+          <irisloader-loading></irisloader-loading>
+          <ul>
+            <li ng-repeat="item in items">
+              <a ui-sref="apps">{{item.Label}}</a>
+          </ul>
+        </div>
+        <div class="col-md-10">
             <div ui-view>
 
             </div>
