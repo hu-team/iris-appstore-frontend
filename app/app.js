@@ -53,7 +53,7 @@ angular.module('Arvici').service('appService', function ($http, $q) {
     function getAppById(id) {
         var request = $http({
             method: 'GET',
-            url: API_PATH + '/App/' + id
+            url: API_PATH + '/App' + id
             //url: API_PATH + '/posts/' + id
         });
 
@@ -83,11 +83,6 @@ angular.module('Arvici').controller('AppController', function ($scope, $statePar
             $scope.app = response;
         });
     }
-});
-angular.module('Arvici').controller('CategorieController', function ($scope) {
-
-    //een variable maken met wat voor categorie ik heb en dan een filter maken met de categorie
-
 });
 angular.module('Arvici').controller('LoginController', function ($scope, $state) {
     $scope.submitLogin = function () {
