@@ -20,7 +20,7 @@ angular.module('Arvici').service('appService', ['$http', '$q', function( $http, 
     function getApps(){
         var request = $http({
             method: 'GET',
-            url: API_PATH + '/App'
+            url: API_PATH + 'App'
         });
 
         return (request.then(handleSucces, handleError));
@@ -29,7 +29,7 @@ angular.module('Arvici').service('appService', ['$http', '$q', function( $http, 
     function getAppById( id ){
         var request = $http({
             method: 'GET',
-            url: API_PATH + '/posts/' + id
+            url: API_PATH + 'App/' + id
         });
 
         return (request.then(handleSucces, handleError));
