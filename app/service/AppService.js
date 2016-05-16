@@ -37,18 +37,28 @@ angular.module('Arvici').service('appService', ['$http', '$q', function ($http, 
         return (request.then(handleSucces, handleError));
     }
 
-    function addApp( label, code, description ) {
+    function addApp( label, description ) {
+
+        var code = label.split(" ").join("");
 
         var request = $http({
             method: 'POST',
-            url: "http://10.200.200.17/APPSTORE_THIERRY_WS/Api/App",
+            url: "http://10.200.200.17/APPSTORE_ARJAN_WS/Api/App",
             headers: {
               'Content-Type': 'application/json'
             },
             data: {
-                Label: label,
-                Code: code,
-                Description: description
+                "AuthorUserID": "3",
+                "LastChangedUserID": "3",
+                "Code": code,
+                "Label": label,
+                "Description": description,
+                "SettingsDefinition": "{\"test\":\"test\"}",
+                "EntryTemplate": "R_Element_" + code,
+                "Enabled": "1",
+                "Deleted": "0",
+                "CreatedDatetime": "2016-01-28 00:00:00.000",
+                "LastChangedDatetime": "2016-01-28 00:00:00.000"
             }
         });
 

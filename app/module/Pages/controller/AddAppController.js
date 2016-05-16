@@ -6,14 +6,8 @@ angular.module('Arvici').controller('AddAppController', function($scope, $state,
         Code: ""
     };
 
-    $scope.addApp = function(label, code, description){
-        
-        appService.addApp(label, code, description).then($state.go('apps'));
+    $scope.addApp = function(){
+        appService.addApp($scope.form.Label, $scope.form.Description).then($state.go('apps'));
 
-        $scope.form = {
-            Label: "",
-            Description: "",
-            Code: ""
-        }
     }
 });
