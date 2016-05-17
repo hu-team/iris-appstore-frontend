@@ -18,8 +18,9 @@
 </header>
 <div class="container">
     <div class="row">
-        <div class="col-md-2" ng-controller="CategoriesController" id="CategoryList">
+        <div class="col-md-2" ng-controller="CategoriesController" id="CategoryList" ng-hide="loginstate">
           <h2>Categories</h2>
+          {{isLogin}}
           <ul>
             <li ng-repeat="item in items">
               <a ui-sref="apps">{{item.Label}}</a>
