@@ -1,11 +1,10 @@
 <div class="well page" ng-controller="PageController">
     <h1>Apps</h1>
     <irisloader-loading></irisloader-loading>
-
-
-    <ul ng-repeat="app in apps" ng-click="stateApp(app.ID)">
-        <storeviewcard app=app/>
-    </ul>
-
+    <div class="cardcontainer">
+        <ul ng-repeat="app in apps" ng-click="stateApp(app.ID)">
+            <li><storeviewcard app=app/></li>
+        </ul>
+    </div>
     <p><a class="btn btn-primary btn-lg" ui-sref="appnew">Nieuwe App</a></p>
 </div>
