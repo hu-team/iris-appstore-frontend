@@ -1,10 +1,9 @@
-angular.module('Arvici').directive('storeview', function(){
-    var directive = {};
-
-    directive.restrict = 'E';
-    directive.templateUrl = "";
-
-    
-
-    return directive;
+angular.module('Arvici').directive('storeviewcard', function(){
+    return {
+        restrict: 'E',
+        templateUrl: 'view/storeview/index.html',
+        scope: {
+            app: '=app'
+        }
+    };
 });

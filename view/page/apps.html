@@ -1,19 +1,11 @@
 <div class="well page" ng-controller="PageController">
     <h1>Apps</h1>
     <irisloader-loading></irisloader-loading>
-    <table class="table table-striped table-hover">
-        <thead>
-            <tr>
-                <td>#</td>
-                <td>Title</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="app in apps" ng-click="stateApp(app.ID)">
-                <td>{{app.ID}}</td>
-                <td>{{app.Label}}</td>
-            </tr>
-        </tbody>
-    </table>
+
+
+    <ul ng-repeat="app in apps" ng-click="stateApp(app.ID)">
+        <storeviewcard app=app/>
+    </ul>
+
     <p><a class="btn btn-primary btn-lg" ui-sref="appnew">Nieuwe App</a></p>
 </div>

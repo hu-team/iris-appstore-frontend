@@ -11,5 +11,4 @@ angular.module('Arvici').controller('AppController', function($scope, $statePara
             $scope.app = response.result;
         });
     }
-
 });
