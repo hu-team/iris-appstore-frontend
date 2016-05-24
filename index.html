@@ -8,31 +8,31 @@
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 </head>
 <body ng-app="Arvici">
-<header>
-    <div class="navbar navbar-inverse">
-        <ul class="nav navbar-nav">
-            <li><a ui-sref="arvici">Home</a></li>
-            <li><a ui-sref="apps">Apps</a></li>
-        </ul>
+  <header ng-controller="CategoriesController" ng-hide="loginstate">
+    <div layout="column" layout-fill>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span>Iris App Store</span>
+        <md-button><a ui-sref="arvici">Home</a></md-button>
+        <md-button><a ui-sref="apps">Apps</a></md-button>
+      </div>
+    </md-toolbar>
     </div>
-</header>
-<div class="container">
-    <div class="row">
-        <div class="col-md-2" ng-controller="CategoriesController" id="CategoryList" ng-hide="loginstate">
-          <h2>Categories</h2>
-          {{isLogin}}
-          <ul>
-            <li ng-repeat="item in items">
-              <a ui-sref="apps">{{item.Label}}</a>
-          </ul>
-        </div>
-        <div class="col-md-10">
-            <div ui-view>
+  </header>
+  <div layout="row" layout-align="none">
+    <div flex="5"></div>
+    <div flex="30" ng-controller="CategoriesController" id="CategoryList" ng-hide="loginstate">
+      <h2>Categories</h2>
+      {{isLogin}}
+      <ul>
+        <li ng-repeat="item in items">
+          <a ui-sref="apps">{{item.Label}}</a>
+      </ul>
+    </div>
+    <div ui-view>
 
-            </div>
-        </div>
     </div>
-</div>
+  </div>
 <script src="src/vendor.min.js"></script>
 <script src="src/Arvici.app.js"></script>
 </body>

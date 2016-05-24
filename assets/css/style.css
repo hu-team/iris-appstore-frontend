@@ -5,6 +5,13 @@
 #CategoryList > ul li {
   margin-bottom: 15px;
 }
+.md-app-avatar {
+  width: 150px;
+  height: 150px;
+}
+md-card {
+  cursor: pointer;
+}
 .spinner {
   margin: 100px auto 0;
   width: 70px;

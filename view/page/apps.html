@@ -1,10 +1,31 @@
-<div class="well page" ng-controller="PageController">
-    <h1>Apps</h1>
+<div ng-controller="PageController">
+  <h1>Apps</h1>
+  <md-grid-list>
     <irisloader-loading></irisloader-loading>
-    <div class="cardcontainer">
-        <ul ng-repeat="app in apps" ng-click="stateApp(app.ID)">
-            <li><storeviewcard app=app/></li>
-        </ul>
-    </div>
-    <p><a class="btn btn-primary btn-lg" ui-sref="appnew">Nieuwe App</a></p>
+    <md-card ng-repeat="app in apps" ng-click="stateApp(app.ID)" flex="150">
+      <md-card-header>
+        <md-card-title-media>
+          <img src="http://lorempixel.com/150/150/" class="md-media-lg card-media" alt="{{app.Label}}">
+        </md-card-title-media>
+         <md-card-title-text>
+           <span class="md-title">{{app.Label}}<span><br/>
+           <span class="md-subhead">{{app.Description}}</span>
+         </md-card-title-text>
+      </md-card-header>
+    </md-card>
+  </md-grid-list>
 </div>
+
+
+
+<!-- <div class="cardcontainer">
+  <ul ng-repeat="app in apps" ng-click="stateApp(app.ID)">
+    <li><storeviewcard app=app/></li>
+  </ul>
+</div> -->
+
+
+
+
+
+<!-- <p><a class="btn btn-primary btn-lg" ui-sref="appnew">Nieuwe App</a></p> -->

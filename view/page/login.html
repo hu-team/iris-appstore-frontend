@@ -1,10 +1,17 @@
-<div class="well page" ng-controller="LoginController">
-    <h1>Login</h1>
+<div layout="column" layout-align-gt-md="center center" ng-controller="LoginController" layout-fill>
 
-    <div class="form-group label-static">
-        <input placeholder="Username" type="text" class="form-control" />
-        <input placeholder="Password" type="password" class="form-control" />
+    <h1 class="md-display-3">Login</h1>
+
+    <div layout="column" layout-align="space-around none">
+        <md-input-container>
+          <input placeholder="Username" type="text" class="form-control" />
+        </md-input-container>
+        <md-input-container>
+          <input placeholder="Password" type="password" class="form-control" />
+        </md-input-container>
     </div>
 
-    <button class="btn btn-primary btn-lg" ng-click="submitLogin()">Login</button>
+    <div layout="column" layout-align="end none">
+      <button class="md-button" ng-click="submitLogin()">Login</button>
+    </div>
 </div>
