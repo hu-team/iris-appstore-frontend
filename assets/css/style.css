@@ -4,6 +4,14 @@
 }
 #CategoryList > ul li {
   margin-bottom: 15px;
+  cursor: pointer;
+}
+#CategoryList > ul li.active {
+  color: #3f51b5;
+}
+.button-clear {
+  color: red;
+  cursor: pointer;
 }
 .md-app-avatar {
   width: 150px;

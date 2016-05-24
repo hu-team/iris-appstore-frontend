@@ -14,11 +14,25 @@ $scope.loginstate = false;
   });
 
   function init() {
+    $scope.categoryFilter = null;
+    reload();
+  }
+
+  function reload() {
     appService.getCategory().then(function(data){
       $scope.items = data.result;
     }).catch(function(err) {
       new Error(err);
     });
+  }
+
+  $scope.filterCategory = function (cat) {
+    $scope.categoryFilter = cat;
+     reload();
+  }
+
+  $scope.clearFilter = () => {
+    $scope.categoryFilter = null;
   }
 
   init();
