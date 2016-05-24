@@ -1,5 +1,4 @@
 angular.module('Arvici').service('appService', ['$http', '$q', function ($http, $q) {
-    //var API_PATH = 'http://jsonplaceholder.typicode.com';
     var API_PATH = "http://10.200.200.17/APPSTORE_OLIVIER_WS/Api";
 
     return ({
@@ -32,7 +31,6 @@ angular.module('Arvici').service('appService', ['$http', '$q', function ($http, 
         var request = $http({
             method: 'GET',
             url: API_PATH + '/App/' + id
-            //url: API_PATH + '/posts/' + id
             });
         return (request.then(handleSucces, handleError));
     }

@@ -6,7 +6,7 @@ grunt.initConfig({
       dest: 'src/Arvici.app.js'
     },
     external: {
-      src: ['lib/jquery/*.js', 'lib/angular/*.js', 'lib/angular-sanitize/*.js', 'lib/angular-ui-router/*.js', 'lib/bootstrap-material-design/*.js'],
+      src: ['lib/jquery/*.js', 'lib/angular/*.js', 'lib/angular-sanitize/*.js', 'lib/angular-ui-router/*.js', 'lib/angular-animate/*.js', 'lib/angular-aria/*.js', 'lib/angular-material/*.js'],
       dest: 'src/vendor.js'
     }
   },

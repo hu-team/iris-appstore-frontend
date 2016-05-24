@@ -1,6 +1,13 @@
-angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider) {
+angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
-    $urlRouterProvider.otherwise("/login");
+     $urlRouterProvider.otherwise("/login");
+    //
+    // $locationProvider.html5Mode({
+    //   enabled: true,
+    //   requireBase: true
+    // });
+
+    //$state.go('login');
 
     $stateProvider
         .state('arvici', {
