@@ -12,7 +12,7 @@ angular.module('Arvici').service('appService', ['$http', '$q', 'API_PATH', funct
     function getCategory() {
         var request = $http({
             method: "GET",
-            url: API_PATH + '/AppCategory'
+            url: API_PATH + '/AppCategory?Enabled=1'
         });
 
         return (request.then(handleSucces).catch(handleError));
@@ -21,8 +21,7 @@ angular.module('Arvici').service('appService', ['$http', '$q', 'API_PATH', funct
     function getApps() {
         var request = $http({
             method: 'GET',
-            url: API_PATH + '/App'
-            //url: API_PATH + '/posts'
+            url: API_PATH + '/App?Enabled=1'
         });
 
         return (request.then(handleSucces, handleError));
