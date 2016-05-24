@@ -1,5 +1,6 @@
-angular.module('Arvici').service('appService', ['$http', '$q', function ($http, $q) {
-    var API_PATH = "http://10.200.200.17/APPSTORE_OLIVIER_WS/Api";
+angular.module('Arvici').service('appService', ['$http', '$q', 'API_PATH', function ($http, $q, API_PATH) {
+    this.API_PATH = API_PATH;
+    //var API_PATH = "http://10.200.200.17/APPSTORE_OLIVIER_WS/Api";
 
     return ({
         getApps: getApps,
