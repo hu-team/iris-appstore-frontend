@@ -16,6 +16,6 @@ angular.module('Arvici').controller('AddAppController', function($scope, $state,
     };
 
     function isFilledIn(){
-        return ($scope.form.label == "" || $scope.form.description == "" ? false : true);
+        return $scope.form.label && $scope.form.description;
     }
 });
