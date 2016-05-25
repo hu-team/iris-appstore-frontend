@@ -19,7 +19,32 @@
 }
 md-card {
   cursor: pointer;
+  float: left;
 }
+
+.md-subhead{
+  text-overflow: ellipsis;
+}
+
+md-card-title-media {
+  padding-right: 1em;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+}
+
 .spinner {
   margin: 100px auto 0;
   width: 70px;

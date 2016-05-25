@@ -7,9 +7,14 @@
         <md-card-title-media>
           <img src="http://lorempixel.com/150/150/" class="md-media-lg card-media" alt="{{app.Label}}">
         </md-card-title-media>
-         <md-card-title-text>
-           <span class="md-title">{{app.Label}}<span><br/>
+         <md-card-title-text style="word-wrap: break-word; width: 200px;">
+           <span class="md-title">{{app.Label}}</span><br/>
            <span class="md-subhead">{{app.Description}}</span>
+           <span class="md-subhead" layout="row" layout-align="start end">
+             <div class="rating">
+               <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+             </div>
+           </span>
          </md-card-title-text>
       </md-card-header>
     </md-card>
