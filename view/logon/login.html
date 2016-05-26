@@ -1,6 +1,27 @@
 <div layout="column" layout-align-gt-md="center center" ng-controller="LoginController" layout-fill>
-
-    <h1 class="md-display-3">Login</h1>
+    <md-card>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">Iris Appstore - Login</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content layout="column" layout-align="space-between">
+        <div layout="row">
+          <md-input-container>
+            <input placeholder="Username" type="text" class="form-control" />
+          </md-input-container>
+          <md-input-container>
+            <input placeholder="Password" type="password" class="form-control" />
+          </md-input-container>
+        </div>
+        <div layout="column" layout-align-gt-md="center center">
+          <md-button class="md-raised md-primary">
+            <a ui-sref="store">login</a>
+          </md-button>
+        </div>
+      <md-card-content>
+    </md-card>
+    <!-- <h1 class="md-display-3">Login</h1>
 
     <div layout="column" layout-align="space-around none">
         <md-input-container>
@@ -9,11 +30,10 @@
         <md-input-container>
           <input placeholder="Password" type="password" class="form-control" />
         </md-input-container>
-    </div>
+    </div> -->
+    <!-- <div layout="column" layout-align="end none">
+      <button class="md-button" ng-click="submitLogin()">Login</button>
 
-    <div layout="column" layout-align="end none">
-      <!-- <button class="md-button" ng-click="submitLogin()">Login</button> -->
-      <a ui-sref="store">login</a>
 
-    </div>
+    </div> -->
 </div>
