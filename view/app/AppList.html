@@ -1,6 +1,6 @@
-<div ng-controller="PageController">
+<div ng-controller="PageController" flex="100">
   <h1>Apps</h1>
-  <md-grid-list>
+  <md-grid-list flex="100">
     <irisloader-loading></irisloader-loading>
     <md-card ng-repeat="app in apps" ng-click="stateApp(app.ID)" flex="150">
       <md-card-header>

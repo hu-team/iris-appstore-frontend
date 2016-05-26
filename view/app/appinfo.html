@@ -1,0 +1,81 @@
+<div layout-md="column" ng-controller="AppController" layout-fill flex="95">
+  <div flex>
+    <md-button class="md-raised md-primary">
+      <a ui-sref="store">Terug</a>
+    </md-button>
+  </div>
+    <irisloader-loading></irisloader-loading>
+    <md-content class="md-padding" layout="column" layout="row">
+      <md-card>
+        <div layout="row" flex-offset="5">
+          <h2>{{app.Label}}</h2>
+        </div>
+        <md-card-title>
+          <!-- <md-card-title-media> -->
+            <div flex="30" layout="column">
+              <div>
+                <img ng-src="http://lorempixel.com/150/150/sports/" class="md-card-image" alt="{{app.Label}}">
+              </div>
+              <div flex="5" layout="row">
+                <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+              </div>
+            </div>
+          <!-- <md-card-title-media> -->
+          <md-card-title-text flex-offset="5">
+            <span class="md-headline">{{app.Description}}</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <div layout="row">
+            <span flex="80">Reviews (2)</span>
+            <span>Version: <md-input-container>
+                <md-select  ng-model="app" placeholder="1.0.0">
+                  <md-option ng-value="opt">1.9.1</md-option>
+                  <md-option ng-value="opt">2.0.1</md-option>
+                </md-select>
+              </md-input-container>
+            </span>
+          </div>
+          <div layout="column">
+              <md-list>
+                <md-list-item class="md-3-line">
+                   <img ng-src="/assets/img/wooman.png" class="md-avatar" />
+                   <div class="md-list-item-text" layout="column">
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                     <div flex="5" layout="row">
+                       <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                       <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                       <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                     </div>
+                   </div>
+                </md-list-item>
+                <md-list-item class="md-3-line">
+                   <img ng-src="/assets/img/wooman.png" class="md-avatar" />
+                   <div class="md-list-item-text" layout="column">
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                     <div flex="5" layout="row">
+                       <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                       <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                       <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                     </div>
+                   </div>
+                </md-list-item>
+                <md-list-item class="md-3-line">
+                   <img ng-src="/assets/img/wooman.png" class="md-avatar" />
+                   <div class="md-list-item-text" layout="column">
+                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                     <div flex="5" layout="row">
+                       <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                       <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                       <img src="/assets/img/ratingstar.svg" alt="" class="ratingstar-24">
+                     </div>
+                   </div>
+                </md-list-item>
+              <md-list>
+          </div>
+        </md-card-content>
+      <md-card>
+    </md-content>
+</div>

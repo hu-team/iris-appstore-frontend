@@ -12,7 +12,7 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
     $stateProvider
         .state('arvici', {
             url: "/",
-            templateUrl: "view/page/index.html"
+            views: getDefaultView()
         })
         .state('login', {
             url: "/login",
@@ -32,7 +32,17 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
         })
         .state('appinfo', {
             url: "/apps/:id",
-            templateUrl: "view/page/appinfo.html"
+            views: {
+              'sidebar': {
+                templateUrl: 'view/category/CategoryList.html'
+              },
+              'navmenu': {
+                templateUrl: 'view/navigator/Menu.html'
+              },
+              'appinfo': {
+                templateUrl: "view/app/appinfo.html"
+              }
+            }
         })
         .state('store', {
             url: "/store",
@@ -40,7 +50,7 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
               'sidebar': {
                 templateUrl: "view/category/CategoryList.html"
               },
-              'content': {
+              'applist': {
                 templateUrl: 'view/app/AppList.html'
               },
               'navmenu': {
@@ -49,3 +59,17 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
             }
         })
 });
+
+function getDefaultView() {
+  return {
+    'sidebar': {
+      templateUrl: "view/category/CategoryList.html"
+    },
+    'applist': {
+      templateUrl: 'view/app/AppList.html'
+    },
+    'navmenu': {
+      templateUrl: 'view/navigator/Menu.html'
+    }
+  }
+}

@@ -67,3 +67,7 @@ md-card {
     transform: scale(1);
   }
 }
+.ratingstar-24 {
+  width: 24px;
+  height: 24px !important;
+}

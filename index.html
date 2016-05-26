@@ -20,8 +20,12 @@
     <div ui-view="sidebar">
 
     </div>
-    <div ui-view="content">
+    <!-- <div ng-show="$state.current.name === 'appinfo'"> -->
+      <div ui-view="appinfo" flex>
 
+      </div>
+    <!-- </div> -->
+    <div ui-view="applist" layout="row" flex>
     </div>
   </div>
 <script src="src/vendor.min.js"></script>
