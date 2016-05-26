@@ -6,34 +6,21 @@
     <link rel="stylesheet" href="assets/css/angular-material.min.css" media="screen" title="no title" charset="utf-8">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <base href="/">
 </head>
 <body ng-app="Arvici">
-  <header ng-controller="CategoriesController" ng-hide="loginstate">
-    <div layout="column" layout-fill>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <span>Iris App Store</span>
-        <md-button><a ui-sref="arvici">Home</a></md-button>
-        <md-button><a ui-sref="apps">Apps</a></md-button>
-      </div>
-    </md-toolbar>
-    </div>
-  </header>
+  <div ui-view="logon">
+
+  </div>
+  <div ui-view="navmenu">
+
+  </div>
   <div layout="row" layout-align="none">
     <div flex="5"></div>
-    <div flex="30" ng-controller="CategoriesController" id="CategoryList" ng-hide="loginstate">
-      <h2>Categories
-        <span ng-click="clearFilter()" class="button-clear" style="cursor: pointer;" ng-if="categoryFilter !== null">
-          &times;
-        </span>
-      </h2>
-      {{isLogin}}
-      <ul>
-        <li ng-repeat="item in items" ng-class="categoryFilter.ID == item.ID ? 'active' : ''">
-          <a ng-click="filterCategory( item )">{{item.Label}}</a>
-      </ul>
+    <div ui-view="sidebar">
+
     </div>
-    <div ui-view>
+    <div ui-view="content">
 
     </div>
   </div>

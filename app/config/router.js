@@ -16,7 +16,11 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
         })
         .state('login', {
             url: "/login",
-            templateUrl: "view/page/login.html"
+            views: {
+              'logon': {
+                  templateUrl: "view/logon/login.html"
+              }
+            }
         })
         .state('apps', {
             url: "/apps",
@@ -30,15 +34,18 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
             url: "/apps/:id",
             templateUrl: "view/page/appinfo.html"
         })
-        .state('categories', {
-            url: "/categories",
-            template: "view/page/categories.html"
-        })
-        .state('color', {
-            url: "/color",
-            templateUrl: "view/red/red.html",
-            controller: function ($scope) {
-                $scope.items = ["Red", "Blue", "Yellow"]
+        .state('store', {
+            url: "/store",
+            views: {
+              'sidebar': {
+                templateUrl: "view/category/CategoryList.html"
+              },
+              'content': {
+                templateUrl: 'view/app/AppList.html'
+              },
+              'navmenu': {
+                templateUrl: 'view/navigator/Menu.html'
+              }
             }
         })
 });

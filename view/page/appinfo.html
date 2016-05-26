@@ -1,16 +1,14 @@
-<div class="well page" ng-controller="AppController">
+<div layout="column" ng-controller="AppController">
     <irisloader-loading></irisloader-loading>
     <h1>{{app.Label}}</h1>
 
-    <p>
-        <h2>Code</h2>
-        {{app.Code}}
-    </p>
 
     <p>
         <h3>Description</h3>
         {{app.Description}}
     </p>
-
+    <hr></hr>
+    <h3>Reviews()</h3>
+    
     <p><a class="btn btn-primary btn-lg" ui-sref="apps">Terug</a></p>
 </div>
