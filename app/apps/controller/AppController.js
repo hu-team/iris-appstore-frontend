@@ -7,6 +7,7 @@ angular.module('Arvici').controller('AppController', function($scope, $statePara
     }
 
     function loadApp( appId ){
+        $scope.$emit('someEvent', 0);
         appService.getAppById( appId ).then(function( response ){
             $scope.app = response.result;
         });

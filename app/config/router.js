@@ -34,7 +34,7 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
             url: "/apps/:id",
             views: {
               'sidebar': {
-                templateUrl: 'view/category/CategoryList.html'
+                templateUrl: 'view/category/CategoryList.html',
               },
               'navmenu': {
                 templateUrl: 'view/navigator/Menu.html'
@@ -48,7 +48,7 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
             url: "/store",
             views: {
               'sidebar': {
-                templateUrl: "view/category/CategoryList.html"
+                templateUrl: "view/category/CategoryList.html",
               },
               'applist': {
                 templateUrl: 'view/app/AppList.html'
@@ -63,7 +63,7 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
 function getDefaultView() {
   return {
     'sidebar': {
-      templateUrl: "view/category/CategoryList.html"
+      templateUrl: "view/category/CategoryList.html",
     },
     'applist': {
       templateUrl: 'view/app/AppList.html'
