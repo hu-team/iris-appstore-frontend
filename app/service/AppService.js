@@ -40,7 +40,7 @@ angular.module('Arvici').service('appService', ['$http', '$q', 'API_PATH', funct
 
         var request = $http({
             method: 'POST',
-            url: "http://10.200.200.17/APPSTORE_ARJAN_WS/Api/App",
+            url: API_PATH + "/App",
             headers: {
               'Content-Type': 'application/json'
             },
