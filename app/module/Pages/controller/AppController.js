@@ -3,7 +3,7 @@ angular.module('Arvici').controller('AppController', function($scope, $statePara
     if($stateParams.id != null){
         loadApp($stateParams.id);
     }else{
-        $state.go('apps');
+        $state.go('store');
     }
 
     function loadApp( appId ){

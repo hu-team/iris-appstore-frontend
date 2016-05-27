@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <base href="/">
 </head>
-<body ng-app="Arvici">
+<body ng-app="Arvici" ng-controller="ArviciController">
   <div ui-view="logon">
 
   </div>
@@ -20,12 +20,10 @@
     <div ui-view="sidebar">
 
     </div>
-    <!-- <div ng-show="$state.current.name === 'appinfo'"> -->
-      <div ui-view="appinfo" flex>
+      <div ui-view="appinfo" flex ng-show="$state.current.name === 'appinfo'">
 
       </div>
-    <!-- </div> -->
-    <div ui-view="applist" layout="row" flex>
+    <div ui-view="applist" layout="row" flex ng-show="$state.current.name === 'store'">
     </div>
   </div>
 <script src="src/vendor.min.js"></script>
