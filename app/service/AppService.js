@@ -1,78 +1,45 @@
-angular.module('Arvici').service('appService', ['$http', '$q', 'API_PATH', function ($http, $q, API_PATH) {
-    this.API_PATH = API_PATH;
-    var apps = null;
+angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', function($q, $http, API_PATH){
 
-    return ({
-        apps: apps,
-        getApps: getApps,
-        getAppById: getAppById,
-        getCategory: getCategory,
-        addApp: addApp
-    });
 
-    function getCategory() {
-        var request = $http({
-            method: "GET",
-            url: API_PATH + '/AppCategory?Enabled=1'
+  function getCategory() {
+      var categoryList = $q.defer();
+
+      var request = $http({
+          method: "GET",
+          url: API_PATH + '/AppCategory?Enabled=1'
+      }).then(function(req){
+        categoryList.resolve({
+                data: req.data.result
         });
-
-        return (request.then(handleSucces).catch(handleError));
-    }
-
-    function getApps() {
-        var request = $http({
-            method: 'GET',
-            url: API_PATH + '/App?Enabled=1'
+      }).catch(function(err){
+        console.error(err);
+        categoryList.reject({
+          message: "Er is iets fout gegaan"
         });
-        return (request.then(handleSucces, handleError));
-    }
+      });
 
-    function getAppById(id) {
-        var request = $http({
-            method: 'GET',
-            url: API_PATH + '/App/' + id
-            });
-        return (request.then(handleSucces, handleError));
-    }
+      return categoryList.promise;
+  }
 
-    function addApp( label, description ) {
+  function getAppsByCategory(cat_id) {
+    var appList = $q.defer();
 
-        var code = label.split(" ").join("");
+    var request = $http({
+      method: "GET",
+      url: API_PATH + '/AppCategories?AppCategoryID='+cat_id
+    }).then(function(req){
+      //TODO
+      //Mapping over App Object
+    }).catch(function(err){
+      console.error(err);
+      appList.reject({
+        message: "Er is iets fout gegaan"
+      })
+    })
+  }
 
-        var request = $http({
-            method: 'POST',
-            url: API_PATH + "/App",
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            data: {
-                "AuthorUserID": "3",
-                "LastChangedUserID": "3",
-                "Code": code,
-                "Label": label,
-                "Description": description,
-                "SettingsDefinition": "{\"test\":\"test\"}",
-                "EntryTemplate": "R_Element_" + code,
-                "Enabled": "1",
-                "Deleted": "0",
-                "CreatedDatetime": "2016-01-28 00:00:00.000",
-                "LastChangedDatetime": "2016-01-28 00:00:00.000"
-            }
-        });
-
-        return (request.then(handleSucces, handleError));
-
-    }
-
-        function handleError(response) {
-            if (!angular.isObject(response) || !response.message) {
-                return ($q.reject("An unknown error occurred."));
-            }
-        }
-
-        function handleSucces(response) {
-            return response.data;
-        }
-
-    }
-]);
+  return {
+    getCategory: getCategory,
+    getAppsByCategory: getAppsByCategory
+  }
+}]);

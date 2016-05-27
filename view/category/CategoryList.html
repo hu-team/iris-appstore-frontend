@@ -1,4 +1,4 @@
-<div flex="30" id="CategoryList" ng-controller="CategoriesController" ng-hide="loginstate">
+<div flex="30" id="CategoryList" ng-controller="CategoriesController" ng-hide="loginstate" ng-init="init()">
   <h2>Categories
     <span ng-click="clearFilter()" class="button-clear" style="cursor: pointer;" ng-if="categoryFilter !== null">
       &times;
