@@ -8,9 +8,6 @@ $scope.loginstate = false;
       } else {
         $scope.loginstate = false;
       }
-        //console.log($state.current.name); // "lazy.state"
-        //console.log(unfoundState.toParams); // {a:1, b:2}
-        //console.log(unfoundState.options); // {inherit:false} + default options
   });
 
   function init() {
@@ -19,6 +16,8 @@ $scope.loginstate = false;
   }
 
   function reload() {
+    console.log("Reload: " + appService.apps);
+    appService.apps = [];
     appService.getCategory().then(function(data){
       $scope.items = data.result;
     }).catch(function(err) {

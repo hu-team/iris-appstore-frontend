@@ -2,7 +2,7 @@
   <h1>Apps</h1>
   <md-grid-list flex="100">
     <irisloader-loading></irisloader-loading>
-    <md-card ng-repeat="app in apps" ng-click="stateApp(app.ID)" flex="150">
+    <md-card ng-model="apps" ng-repeat="app in apps" ng-click="stateApp(app.ID)" flex="150">
       <md-card-header>
         <md-card-title-media>
           <img src="http://lorempixel.com/150/150/" class="md-media-lg card-media" alt="{{app.Label}}">

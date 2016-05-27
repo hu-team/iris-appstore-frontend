@@ -4,7 +4,6 @@
       &times;
     </span>
   </h2>
-  {{isLogin}}
   <ul>
     <li ng-repeat="item in items" ng-class="categoryFilter.ID == item.ID ? 'active' : ''">
       <a ng-click="filterCategory( item )">{{item.Label}}</a>

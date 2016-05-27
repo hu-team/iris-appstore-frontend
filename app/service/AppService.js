@@ -1,7 +1,9 @@
 angular.module('Arvici').service('appService', ['$http', '$q', 'API_PATH', function ($http, $q, API_PATH) {
     this.API_PATH = API_PATH;
+    var apps = null;
 
     return ({
+        apps: apps,
         getApps: getApps,
         getAppById: getAppById,
         getCategory: getCategory,
@@ -22,7 +24,6 @@ angular.module('Arvici').service('appService', ['$http', '$q', 'API_PATH', funct
             method: 'GET',
             url: API_PATH + '/App?Enabled=1'
         });
-
         return (request.then(handleSucces, handleError));
     }
 
@@ -72,5 +73,6 @@ angular.module('Arvici').service('appService', ['$http', '$q', 'API_PATH', funct
         function handleSucces(response) {
             return response.data;
         }
+
     }
 ]);
