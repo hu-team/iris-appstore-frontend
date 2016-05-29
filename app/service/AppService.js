@@ -1,6 +1,5 @@
 angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', function($q, $http, API_PATH){
 
-
   function getCategory() {
       var categoryList = $q.defer();
 
@@ -28,14 +27,21 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
       method: "GET",
       url: API_PATH + '/AppCategories?AppCategoryID='+cat_id
     }).then(function(req){
-      //TODO
-      //Mapping over App Object
+      var data = req.data.result.map(function(obj){
+        return obj.App;
+      });
+
+      appList.resolve({
+        result: data
+      });
     }).catch(function(err){
       console.error(err);
       appList.reject({
         message: "Er is iets fout gegaan"
       })
-    })
+    });
+
+    return appList.promise;
   }
 
   return {
