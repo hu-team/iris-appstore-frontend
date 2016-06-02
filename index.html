@@ -15,11 +15,18 @@
   <div ui-view="navmenu">
 
   </div>
-  <div layout="row" layout-align="none">
-    <div flex="5"></div>
-    <div ui-view="sidebar">
+  <div layout="row" layout-align="none" flex>
+    <md-sidenav
+     class="md-sidenav-left"
+     md-component-id="left"
+     md-is-locked-open="$mdMedia('gt-md')"
+     md-disable-backdrop
+     md-whiteframe="4">
+      <div ui-view="sidebar">
 
-    </div>
+      </div>
+    </md-sidenav>
+    <div flex="5"></div>
     <div ui-view="appinfo" flex ng-show="$state.current.name === 'appinfo'">
 
     </div>

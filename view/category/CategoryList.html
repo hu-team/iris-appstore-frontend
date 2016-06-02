@@ -1,9 +1,11 @@
-<div flex="30" id="CategoryList" ng-controller="CategoriesController" ng-hide="loginstate" ng-init="init()">
-  <h2>Categories
-    <span ng-click="clearFilter()" class="button-clear" style="cursor: pointer;" ng-if="categoryFilter !== null">
-      &times;
-    </span>
-  </h2>
+<div id="CategoryList" ng-controller="CategoriesController" ng-init="init()">
+   <md-toolbar class="md-theme-indigo">
+      <h2 class="md-toolbar-tools">Categories
+        <span ng-click="clearFilter()" class="button-clear" style="cursor: pointer;" ng-if="categoryFilter !== null">
+          &times;
+        </span>
+      </h2>
+  </md-toolbar>
   <ul>
     <li ng-repeat="item in items" ng-class="categoryFilter.ID == item.ID ? 'active' : ''">
       <a ng-click="filterCategory( item )">{{item.Label}}</a>
