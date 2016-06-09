@@ -8,7 +8,8 @@
     "url": "https://github.com/hu-team/Arvici-Scaffolding.git"
   },
   "scripts": {
-    "test": ""
+    "test": "",
+    "arvici": "git pull && grunt build"
   },
   "keywords": [],
   "author": "",
