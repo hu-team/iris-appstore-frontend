@@ -12,6 +12,12 @@ angular.module('Arvici').controller('PageController', ["$scope", "$state", "appS
 
     $scope.$on('getCategoryApps', function(e, v){
       $scope.apps = [];
+      
+      if( v === "all" ) {
+        loadAppData();
+        return;
+      }
+
       AppService.getAppsByCategory(v.ID).then(function( response ) {
         $scope.apps = response.result;
       });
