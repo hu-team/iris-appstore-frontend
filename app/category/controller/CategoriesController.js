@@ -29,6 +29,7 @@ $scope.loginstate = false;
 
   $scope.clearFilter = () => {
     $scope.categoryFilter = null;
+      $scope.$emit('categoryChanged', 'all');
   }
 
 }]);
