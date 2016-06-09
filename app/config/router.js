@@ -10,10 +10,6 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
     //$state.go('login');
 
     $stateProvider
-        .state('arvici', {
-            url: "/",
-            views: getDefaultView()
-        })
         .state('login', {
             url: "/login",
             views: {
