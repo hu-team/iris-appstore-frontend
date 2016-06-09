@@ -14,22 +14,20 @@
   <div ui-view="navmenu">
 
   </div>
-  <div layout="row" layout-align="none" flex>
-    <md-sidenav
-     class="md-sidenav-left"
-     md-component-id="left"
-     md-is-locked-open="$mdMedia('gt-md')"
-     md-disable-backdrop
-     md-whiteframe="4">
-      <div ui-view="sidebar">
+  <div layout="row" flex class="content-container">
+      <md-sidenav
+       class="md-sidenav-left"
+       md-component-id="left"
+       md-is-locked-open="$mdMedia('gt-md')"
+       md-disable-backdrop
+       ui-view="sidebar">
 
-      </div>
-    </md-sidenav>
-    <div flex="5"></div>
+      </md-sidenav>
+      <div flex="5"></div>
     <div ui-view="appinfo" flex ng-show="$state.current.name === 'appinfo'">
 
     </div>
-    <div ui-view="applist" layout="row" flex ng-show="$state.current.name === 'store'">
+    <div ui-view="applist"  flex ng-show="$state.current.name === 'store'">
     </div>
   </div>
 <script src="src/vendor.min.js"></script>
