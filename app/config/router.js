@@ -22,9 +22,19 @@ angular.module('Arvici').config(function ($stateProvider, $urlRouterProvider, $l
             url: "/apps",
             templateUrl: "view/page/apps.html"
         })
-        .state('appnew', {
-            url: "/apps/new",
-            templateUrl: "view/page/appnew.html"
+        .state('createapp', {
+            url: "/app/new",
+            views: {
+              'sidebar': {
+                templateUrl: 'view/category/CategoryList.html'
+              },
+              'navmenu': {
+                templateUrl: 'view/navigator/Menu.html'
+              },
+              'createapp': {
+                templateUrl: 'view/app/createapp.html'
+              }
+            }
         })
         .state('appinfo', {
             url: "/apps/:id",
