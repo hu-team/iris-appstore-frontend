@@ -15,14 +15,9 @@
 
   </div>
   <div layout="row" flex class="content-container">
-      <md-sidenav
-       class="md-sidenav-left"
-       md-component-id="left"
-       md-is-locked-open="$mdMedia('gt-md')"
-       md-disable-backdrop
-       ui-view="sidebar">
+      <div ui-view="sidebar" class="content-container">
 
-      </md-sidenav>
+      </div>
       <div flex="5"></div>
     <div ui-view="appinfo" flex ng-show="$state.current.name === 'appinfo'">
 

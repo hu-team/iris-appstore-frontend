@@ -1,3 +1,9 @@
+<md-sidenav
+ class="md-sidenav-left content-container"
+ md-component-id="left"
+ md-is-locked-open="$mdMedia('gt-md')"
+ md-disable-backdrop
+ >
 <div id="CategoryList" ng-controller="CategoriesController" ng-init="init()">
    <md-toolbar class="md-theme-indigo">
       <h2 class="md-toolbar-tools">Categories
@@ -11,3 +17,4 @@
       <a ng-click="filterCategory( item )">{{item.Label}}</a>
   </ul>
 </div>
+</md-sidenav>
