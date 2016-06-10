@@ -40,6 +40,24 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
         return versionList.promise;
     }
 
+    function getReviewsByAppVersion( app_version ) {
+        var reviewList = $q.defer();
+
+        var request = $http({
+            method: "GET",
+            url: API_PATH + '?AppVersionID=' + app_version
+        }).then(function(req){
+            reviewList.resolve({
+               data: req.data.result
+            });
+        }).catch(function(err){
+           console.error(err);
+            reviewList.reject({
+                message: "Er is iets fouts gegaan"
+            });
+        })
+    }
+
   function getAppsByCategory(cat_id) {
     var appList = $q.defer();
 
