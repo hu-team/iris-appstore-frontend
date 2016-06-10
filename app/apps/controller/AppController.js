@@ -14,7 +14,11 @@ angular.module('Arvici').controller('AppController', function($scope, $statePara
         });
     }
 
-    $scope.versies = {};
+    $scope.loadReview = function(){
+        AppService.getReviewsByAppVersion($scope.versies).then(function( response ){
+            $scope.reviews = response.data;
+        });
+    };
     
     function loadVersions( appId ){
         AppService.getVersionByAppId( appId ).then(function( response ){
