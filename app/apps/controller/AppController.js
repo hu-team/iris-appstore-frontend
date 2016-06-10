@@ -14,6 +14,8 @@ angular.module('Arvici').controller('AppController', function($scope, $statePara
         });
     }
 
+    $scope.versies = {};
+    
     function loadVersions( appId ){
         AppService.getVersionByAppId( appId ).then(function( response ){
             $scope.versions = response.data;

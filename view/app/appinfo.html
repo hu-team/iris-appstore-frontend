@@ -27,7 +27,8 @@
           <div layout="row">
             <span flex="80">Reviews (2)</span>
             <span>Version:<md-input-container>
-                <md-select  ng-model="app" placeholder="Select a version">
+                <md-input-container>
+                <md-select  ng-model="versies" placeholder="Select a version">
                   <md-option ng-value="{{version.ID}}" ng-repeat="version in versions">{{version.Status}}</md-option>
                 </md-select>
               </md-input-container>
