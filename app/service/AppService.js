@@ -20,6 +20,26 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
       return categoryList.promise;
   }
 
+    function getVersionByAppId(app_id) {
+        var versionList = $q.defer();
+
+        var request = $http({
+            method: "GET",
+            url: API_PATH + '/AppVersion?AppID=' + app_id
+        }).then(function(req){
+            versionList.resolve({
+               data: req.data.result
+            });
+        }).catch(function(err){
+            console.error(err);
+            versionList.reject({
+                message: "Er is iets fout gegaan"
+            });
+        });
+
+        return versionList.promise;
+    }
+
   function getAppsByCategory(cat_id) {
     var appList = $q.defer();
 
@@ -46,6 +66,7 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
 
   return {
     getCategory: getCategory,
-    getAppsByCategory: getAppsByCategory
+    getAppsByCategory: getAppsByCategory,
+    getVersionByAppId: getVersionByAppId
   }
 }]);
