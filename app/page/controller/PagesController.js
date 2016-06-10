@@ -1,4 +1,4 @@
-angular.module('Arvici').controller('PageController', ["$scope", "$state", "appService", "AppService", "$rootScope",function($scope, $state, appService, AppService, $rootScope) {
+angular.module('Arvici').controller('PageController', ["$scope", "$state", "$interval", "appService", "AppService", "$rootScope",function($scope, $state, $interval, appService, AppService, $rootScope) {
 
     loadAppData();
 
@@ -6,13 +6,12 @@ angular.module('Arvici').controller('PageController', ["$scope", "$state", "appS
         appService.getApps().then(function( response ){
             appService.apps = response.result;
             $scope.apps = appService.apps;
-        });
-
+        })
     }
 
     $scope.$on('getCategoryApps', function(e, v){
       $scope.apps = [];
-      
+
       if( v === "all" ) {
         loadAppData();
         return;

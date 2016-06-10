@@ -7,12 +7,12 @@
     <md-card ng-model="apps" ng-repeat="app in apps" ng-click="stateApp(app.ID)" flex="150">
       <md-card-header>
         <md-card-title-media>
-          <img src="http://lorempixel.com/150/150/" class="md-media-lg card-media" alt="{{app.Label}}">
+          <img ng-src="assets/img/img_holder_small_{{x | randNum}}.jpg" class="md-media-lg card-media" alt="{{app.Label}}">
         </md-card-title-media>
-         <md-card-title-text style="word-wrap: break-word; width: 200px;">
-           <span class="md-title">{{app.Label}}</span><br/>
-           <span class="md-subhead">{{app.Description}}</span>
-           <span class="md-subhead" layout="row" layout-align="start end">
+         <md-card-title-text style="word-wrap: break-word;" class="app-item">
+           <span class="md-title app-item-title">{{app.Label}}</span>
+           <span class="md-subhead app-item-text">{{app.Description}}</span>
+           <span class="md-subhead app-item-stars" layout-align="start end">
              <div class="rating">
                <ratingstars amount="5" height="24"></ratingstars>
              </div>
