@@ -45,7 +45,7 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
 
         var request = $http({
             method: "GET",
-            url: API_PATH + '?AppVersionID=' + app_version
+            url: API_PATH + '/AppReview?AppVersionID=' + app_version
         }).then(function(req){
             reviewList.resolve({
                data: req.data.result
@@ -55,7 +55,9 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
             reviewList.reject({
                 message: "Er is iets fouts gegaan"
             });
-        })
+        });
+
+        return reviewList.promise;
     }
 
   function getAppsByCategory(cat_id) {
@@ -83,6 +85,7 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
   }
 
   return {
+    getReviewsByAppVersion: getReviewsByAppVersion,
     getCategory: getCategory,
     getAppsByCategory: getAppsByCategory,
     getVersionByAppId: getVersionByAppId

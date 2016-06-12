@@ -25,36 +25,22 @@
         </md-card-title>
         <md-card-content>
           <div layout="row">
-            <span flex="70">Reviews (2)</span>
+            <span flex="80">Reviews (2)</span>
             <span>Version:<md-input-container>
                 <md-input-container>
-                <md-select  ng-model="versions" placeholder="Select a version">
-                  <md-option ng-value="versions.ID" ng-repeat="version in versions">{{version.Status}}</md-option>
+                <md-select  ng-model="versies" ng-change="loadReview()" placeholder="Select a version">
+                  <md-option ng-value="{{version.ID}}" ng-repeat="version in versions">{{version.Status}}</md-option>
                 </md-select>
               </md-input-container>
             </span>
           </div>
           <div layout="column">
               <md-list>
-                <md-list-item class="md-3-line">
+                <md-list-item class="md-3-line" ng-repeat="review in reviews">
                    <img ng-src="/assets/img/wooman.png" class="md-avatar" />
                    <div class="md-list-item-text" layout="column">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                     <p>{{review.ReviewContent}}</p>
                       <ratingstars amount="2" height="15"></ratingstars>
-                   </div>
-                </md-list-item>
-                <md-list-item class="md-3-line">
-                   <img ng-src="/assets/img/wooman.png" class="md-avatar" />
-                   <div class="md-list-item-text" layout="column">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                      <ratingstars amount="5" height="15"></ratingstars>
-                   </div>
-                </md-list-item>
-                <md-list-item class="md-3-line">
-                   <img ng-src="/assets/img/wooman.png" class="md-avatar" />
-                   <div class="md-list-item-text" layout="column">
-                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                      <ratingstars amount="1" height="15"></ratingstars>
                    </div>
                 </md-list-item>
               <md-list>
