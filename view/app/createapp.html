@@ -1,1 +1,27 @@
-<h2>Create a new app</h2>
+<div flex class="app-single-back-button">
+    <a ui-sref="store">
+        <md-button class="md-raised md-primary">
+            <i class="material-icons app-single-back-btn">arrow_back</i> Terug
+        </md-button>
+    </a>
+</div>
+<md-content class="md-padding" layout="column" layout="row" flex="95">
+    <h2>Create a new app</h2>
+    <md-card>
+        <md-card-content class="md-no-momentum"> 
+            <md-input-container class="md-block">
+                <label>Name: </label>
+                <input>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Description:</label>
+                <textarea aria-label="android"></textarea>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <md-button class="md-raised md-primary">
+                    Create App
+                </md-button>
+            </md-input-container>
+        </md-card-content>
+    </md-card>
+</md-content>
