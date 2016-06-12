@@ -36,6 +36,42 @@
   width: 100%;
   float: left;
 }
+.app-version {
+  margin: 0 0;
+}
+.app-header-stars {
+  margin: 15px 0px;
+}
+.app-single-header {
+  padding-left: 16px;
+}
+.app-single-reviews-item {
+  border-bottom: 1px solid #000;
+  padding-bottom: 15px;
+}
+.app-single-reviews-text {
+  margin-top: 20px !important;
+}
+.app-single-write-comment-box {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.app-single-clear-margin {
+  margin: 0;
+}
+.app-single-back-button {
+  margin-left: 15px;
+}
+.app-single-back-btn {
+  font-size: initial;
+}
+.app-single-place-review-star-holder {
+  margin-bottom: 15px;
+}
+.place-review-star {
+  cursor: pointer;
+}
 .spinner {
   margin: 100px auto 0;
   width: 70px;

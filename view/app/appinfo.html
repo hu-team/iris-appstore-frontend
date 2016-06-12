@@ -1,13 +1,13 @@
 <div layout-md="column" ng-controller="AppController" layout-fill flex="95">
-  <div flex>
+  <div flex class="app-single-back-button">
     <a ui-sref="store"><md-button class="md-raised md-primary">
-      Terug
+      <i class="material-icons app-single-back-btn">arrow_back</i> Terug
     </md-button></a>
   </div>
     <irisloader-loading></irisloader-loading>
     <md-content class="md-padding" layout="column" layout="row">
       <md-card>
-        <div layout="row" flex-offset="5">
+        <div layout="row" class="app-single-header">
           <h2>{{app.Label}}</h2>
         </div>
         <md-card-title>
@@ -16,7 +16,7 @@
               <div>
                 <img ng-src="assets/img/img_holder_medium_{{x | randNum}}.jpg" class="md-card-image" alt="{{app.Label}}">
               </div>
-              <ratingstars amount="5" height="24"></ratingstars>
+              <ratingstars amount="5" height="24" class="app-header-stars"></ratingstars>
             </div>
           <!-- <md-card-title-media> -->
           <md-card-title-text flex-offset="5">
@@ -25,9 +25,9 @@
         </md-card-title>
         <md-card-content>
           <div layout="row">
-            <span flex="80">Reviews (2)</span>
-            <span>Version:<md-input-container>
-                <md-input-container>
+            <span flex="75">Reviews (2)</span>
+            <span>Version:
+                <md-input-container class="app-version">
                 <md-select  ng-model="versies" ng-change="loadReview()" placeholder="Select a version">
                   <md-option ng-value="{{version.ID}}" ng-repeat="version in versions">{{version.Status}}</md-option>
                 </md-select>
@@ -36,14 +36,30 @@
           </div>
           <div layout="column">
               <md-list>
-                <md-list-item class="md-3-line" ng-repeat="review in reviews">
+                <md-list-item class="md-3-line app-single-reviews-item" ng-repeat="review in reviews">
                    <img ng-src="/assets/img/wooman.png" class="md-avatar" />
-                   <div class="md-list-item-text" layout="column">
+                   <div class="md-list-item-text app-single-reviews-text" layout="column">
                      <p>{{review.ReviewContent}}</p>
                       <ratingstars amount="2" height="15"></ratingstars>
                    </div>
                 </md-list-item>
               <md-list>
+              <div>
+                <h4>Write a review</h4>
+                <md-input-container class="app-single-write-comment-box">
+                  <textarea aria-label="android"></textarea>
+                </md-input-container>
+                <div class="app-single-place-review-star-holder">
+                  <i class="material-icons place-review-star">star_border</i>
+                  <i class="material-icons place-review-star">star_border</i>
+                  <i class="material-icons place-review-star">star_border</i>
+                  <i class="material-icons place-review-star">star_border</i>
+                  <i class="material-icons place-review-star">star_border</i>
+                </div>
+                    <a ui-sref="store"><md-button class="md-raised md-primary app-single-clear-margin">
+                      Send review
+                    </md-button></a>
+              </div>
           </div>
         </md-card-content>
       <md-card>
