@@ -5,8 +5,7 @@ angular.module('Arvici').controller('ArviciController', ['$state', '$scope', fun
     $scope.$broadcast('getCategoryApps', v);
   });
 
-  $scope.$on('userlogin', function(e, v){ 
-    console.log("Arvici");   
-    $scope.$broadcast('userloggedin', 'dfg')
+  $scope.$on('userlogin', function(e, v){   
+    $scope.$broadcast('usernameIs', v);    
   });
 }]);

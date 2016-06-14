@@ -1,8 +1,7 @@
-angular.module('Arvici').controller('headerController', ['$scope', function ($scope) {
+angular.module('Arvici').controller('headerController', ['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.username = 'Iris';
 
-    $scope.$on('username', function (e, v) {
-        console.log("asdasd");
+    $scope.$on('usernameIs', function (e, v) {
         $scope.username = v;
     });
 }]);
