@@ -37,6 +37,8 @@ angular.module('Arvici').controller('AppController', function($scope, $statePara
     $scope.addReview = function( app_version, review_content){
         if(isFilledIn()){
             AppService.addReview(app_version, review_content, ratingInput);
+            $state.go('appinfo', {id: $stateParams.id}, {reload: true});
+            
         }else{
             window.alert("U moet alle velden invullen.");
         }
