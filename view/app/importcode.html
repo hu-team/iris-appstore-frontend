@@ -11,10 +11,15 @@
         </md-toolbar>
         <md-dialog-content>
             <div class="md-dialog-content">
-                <p>Copy your code and paste it over here.</p>            
+                <p>Copy your code and paste it over here.</p>
                 <textarea ng-model="scriptCode" style="min-width:100%;min-height:300px">
                 </textarea>
-            </div>     
+            </div>
         </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button ng-click="cancel()">
+                import
+            </md-button>
+        </md-dialog-actions>
     </form>
 </md-dialog>
