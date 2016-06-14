@@ -103,7 +103,55 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
         return request.data;
     }
 
+    function _addCategory(appId, categoryId) { 
+        return $http({
+            method: "POST",
+            url: API_PATH + "/AppCategories",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: {
+                "AppID": appId,
+                "AppCategoryID": categoryId
+            }
+        });
+    }
+
+    function _addAppVersion(appId) {
+        return $http({
+            method: "POST",
+            url: API_PATH + "/AppVersion",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            data: {
+                "AppID": appId,
+                "Status": "1.0.0"
+            }
+        });
+    }
+
+    function addApp(appData, categoryId) {
+        var request = $http({
+            method: "POST",
+            url: API_PATH + "/App",
+            headers: {
+                "Content-Type": 'application/json'
+            },
+            data: appData
+        })
+        .then((res) => {
+            var appId = res.data.result.ID
+            _addCategory(appId, categoryId);
+            _addAppVersion(appId);
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+    }
+
     return {
+        addApp: addApp,
         addReview: addReview,
         getReviewsByAppVersion: getReviewsByAppVersion,
         getCategory: getCategory,
