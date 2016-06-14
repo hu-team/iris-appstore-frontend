@@ -51,11 +51,11 @@
                   <textarea ng-model="reviewInput" aria-label="android" class="form-control"></textarea>
                 </md-input-container>
                 <div class="app-single-place-review-star-holder">
-                  <a ng-click="clickStars(1)"><i class="material-icons place-review-star">star_border</i></a>
-                  <a ng-click="clickStars(2)"><i class="material-icons place-review-star">star_border</i></a>
-                  <a ng-click="clickStars(3)"><i class="material-icons place-review-star">star_border</i></a>
-                  <a ng-click="clickStars(4)"><i class="material-icons place-review-star">star_border</i></a>
-                  <a ng-click="clickStars(5)"><i class="material-icons place-review-star">star_border</i></a>
+                  <a ng-click="clickStars(1)"><i id="star1" class="material-icons place-review-star">star_border</i></a>
+                  <a ng-click="clickStars(2)"><i id="star2" class="material-icons place-review-star">star_border</i></a>
+                  <a ng-click="clickStars(3)"><i id="star3" class="material-icons place-review-star">star_border</i></a>
+                  <a ng-click="clickStars(4)"><i id="star4" class="material-icons place-review-star">star_border</i></a>
+                  <a ng-click="clickStars(5)"><i id="star5" class="material-icons place-review-star">star_border</i></a>
                 </div>
                     <md-button ng-click="addReview(versies, reviewInput)" class="md-raised md-primary app-single-clear-margin">
                       Send review

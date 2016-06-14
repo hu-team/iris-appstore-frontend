@@ -29,9 +29,17 @@ angular.module('Arvici').controller('AppController', function($scope, $statePara
         });
     }
 
+    function changeStarIcons( starCount , iconChange){
+        for(var i = 0; i < starCount; i++){
+            angular.element('#star' + (i + 1)).html(iconChange);
+        }
+    }
+
     var ratingInput = 0;
     $scope.clickStars = function (numberStars) {
+        changeStarIcons(5, "star_border")
         ratingInput = numberStars;
+        changeStarIcons(numberStars, "star");
     };
 
     $scope.addReview = function( app_version, review_content){
