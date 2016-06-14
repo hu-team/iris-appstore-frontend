@@ -8,16 +8,17 @@
       <md-card-content layout="column" layout-align="space-between">
         <div layout="row">
           <md-input-container>
-            <input placeholder="Username" type="text" class="form-control" />
+            <input placeholder="Username" type="text" class="form-control" ng-model="username" />
           </md-input-container>
           <md-input-container>
             <input placeholder="Password" type="password" class="form-control" />
           </md-input-container>
         </div>
         <div layout="column" layout-align-gt-md="center center">
-          <a ui-sref="store"><md-button class="md-raised md-primary">
+          
+          <md-button class="md-raised md-primary" ng-click="submitLogin()">
             login
-          </md-button></a>
+          </md-button>
         </div>
       <md-card-content>
     </md-card>
