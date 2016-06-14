@@ -25,4 +25,17 @@ angular.module('Arvici').controller('AppController', function($scope, $statePara
             $scope.versions = response.data;
         });
     }
+
+    $scope.addReview = function( app_version, review_content ){
+        if(isFilledIn()){
+            AppService.addReview(app_version, review_content);
+        }else{
+            window.alert("U moet alle velden invullen.");
+        }
+    };
+
+
+    function isFilledIn() {
+        return $scope.reviewInput && $scope.versies;
+    }
 });

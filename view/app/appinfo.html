@@ -48,7 +48,7 @@
               <div>
                 <h4>Write a review</h4>
                 <md-input-container class="app-single-write-comment-box">
-                  <textarea aria-label="android"></textarea>
+                  <textarea ng-model="reviewInput" aria-label="android" class="form-control"></textarea>
                 </md-input-container>
                 <div class="app-single-place-review-star-holder">
                   <i class="material-icons place-review-star">star_border</i>
@@ -57,7 +57,7 @@
                   <i class="material-icons place-review-star">star_border</i>
                   <i class="material-icons place-review-star">star_border</i>
                 </div>
-                    <a ui-sref="store"><md-button class="md-raised md-primary app-single-clear-margin">
+                    <a ui-sref="store" ng-click="addReview(versies, reviewInput)"><md-button class="md-raised md-primary app-single-clear-margin">
                       Send review
                     </md-button></a>
               </div>

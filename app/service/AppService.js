@@ -104,6 +104,7 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
     }
 
     return {
+        addReview: addReview,
         getReviewsByAppVersion: getReviewsByAppVersion,
         getCategory: getCategory,
         getAppsByCategory: getAppsByCategory,
