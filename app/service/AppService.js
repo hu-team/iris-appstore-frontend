@@ -84,7 +84,7 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
         return appList.promise;
     }
 
-    function addReview( app_version, content) {
+    function addReview( app_version, content, numberStars) {
         var request = $http({
             method: "POST",
             url: API_PATH + '/AppReview',
@@ -95,7 +95,7 @@ angular.module('Arvici').service('AppService', ['$q', '$http', 'API_PATH', funct
                 "AuthorUserID": "3",
                 "AppVersionID": app_version,
                 "ReviewContent": content,
-                "Rating": "8",
+                "Rating": numberStars,
                 "Enabled": "1"
             }
         });

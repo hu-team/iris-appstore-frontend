@@ -41,7 +41,7 @@
                    <div class="md-list-item-text app-single-reviews-text" layout="column">
                        <p><b>{{review.AuthorUser.Label}}</b></p>
                      <p>{{review.ReviewContent}}</p>
-                      <ratingstars amount="2" height="15"></ratingstars>
+                      <ratingstars amount="review.Rating" height="15"></ratingstars>
                    </div>
                 </md-list-item>
               <md-list>
@@ -51,11 +51,11 @@
                   <textarea ng-model="reviewInput" aria-label="android" class="form-control"></textarea>
                 </md-input-container>
                 <div class="app-single-place-review-star-holder">
-                  <i class="material-icons place-review-star">star_border</i>
-                  <i class="material-icons place-review-star">star_border</i>
-                  <i class="material-icons place-review-star">star_border</i>
-                  <i class="material-icons place-review-star">star_border</i>
-                  <i class="material-icons place-review-star">star_border</i>
+                  <a ng-click="clickStars(1)"><i class="material-icons place-review-star">star_border</i></a>
+                  <a ng-click="clickStars(2)"><i class="material-icons place-review-star">star_border</i></a>
+                  <a ng-click="clickStars(3)"><i class="material-icons place-review-star">star_border</i></a>
+                  <a ng-click="clickStars(4)"><i class="material-icons place-review-star">star_border</i></a>
+                  <a ng-click="clickStars(5)"><i class="material-icons place-review-star">star_border</i></a>
                 </div>
                     <a ui-sref="store" ng-click="addReview(versies, reviewInput)"><md-button class="md-raised md-primary app-single-clear-margin">
                       Send review
