@@ -5,20 +5,30 @@
         </md-button>
     </a>
 </div>
-<md-content class="md-padding" layout="column" layout="row" flex="95">
+<md-content class="md-padding" layout="column" layout="row" flex="95" ng-controller="createAppController">
     <h2>Create a new app</h2>
     <md-card>
-        <md-card-content class="md-no-momentum"> 
+        <md-card-content class="md-no-momentum">
             <md-input-container class="md-block">
                 <label>Name: </label>
-                <input>
+                <input ng-model="AppName">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Description:</label>
-                <textarea aria-label="android"></textarea>
+                <textarea aria-label="android" ng-model="AppDescription"></textarea>
             </md-input-container>
             <md-input-container class="md-block">
-                <md-button class="md-raised md-primary">
+                <md-select ng-model="selectedCategory" placeholder="Select a Category">
+                    <md-option ng-value="{{category.ID}}" ng-repeat="category in categoryList">{{category.Label}}</md-option>
+                </md-select>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <md-button class="md-primary md-raised" ng-click="importCode($event)">
+                    Import Code
+                </md-button>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <md-button class="md-raised md-primary" ng-click="saveApp()">
                     Create App
                 </md-button>
             </md-input-container>

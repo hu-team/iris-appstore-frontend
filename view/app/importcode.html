@@ -1,0 +1,20 @@
+<md-dialog aria-label="Import code" ng-cloak style="min-width:800px">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Import code</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <i class="material-icons">close</i>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <p>Copy your code and paste it over here.</p>            
+                <textarea ng-model="scriptCode" style="min-width:100%;min-height:300px">
+                </textarea>
+            </div>     
+        </md-dialog-content>
+    </form>
+</md-dialog>
