@@ -4,7 +4,7 @@
   </div>
   <md-grid-list flex="100">
     <irisloader-loading></irisloader-loading>
-    <md-card ng-model="apps" ng-repeat="app in apps" ng-click="stateApp(app.ID)" flex="150">
+    <md-card ng-model="apps" ng-repeat="app in apps" ng-click="stateApp(app.ID)" flex="150" style="cursor:pointer">
       <md-card-header>
         <md-card-title-media>
           <img ng-src="assets/img/img_holder_small_{{x | randNum}}.jpg" class="md-media-lg card-media" alt="{{app.Label}}">

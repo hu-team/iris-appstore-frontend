@@ -1,4 +1,4 @@
-angular.module('Arvici').controller('createAppController', ['AppService', '$scope', '$mdDialog', '$mdMedia', function (AppService, $scope, $mdDialog, $mdMedia) {
+angular.module('Arvici').controller('createAppController', ['AppService', '$scope', '$mdDialog', '$mdMedia', '$state', function (AppService, $scope, $mdDialog, $mdMedia, $state) {
     $scope.selectedCategory = '';
     $scope.AppName = '';
     $scope.AppDescription = '';
@@ -29,7 +29,9 @@ angular.module('Arvici').controller('createAppController', ['AppService', '$scop
     $scope.saveApp = function () {
         var appDate = prepareApp();
         var categoryId = $scope.selectedCategory;
-        console.log(categoryId);    
+
+        AppService.addApp(appDate, categoryId);
+        $state.go('store');  
     }
 
     function prepareApp() {

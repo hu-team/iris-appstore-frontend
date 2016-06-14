@@ -1,12 +1,20 @@
 <header>
   <div layout="column" layout-fill>
-  <md-toolbar>
-    <div class="md-toolbar-tools">
-      <span>Iris App Store</span>
-      <a ui-sref="store"><md-button>Home</md-button></a>
-      <a ui-sref="createapp"><md-button>Create App</md-button></a>
-      <!-- <md-button><a ui-sref="apps">Apps</a></md-button> -->
-    </div>
-  </md-toolbar>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <span>Iris App Store</span>
+        <a ui-sref="store">
+          <md-button>Home</md-button>
+        </a>
+        <a ui-sref="createapp">
+          <md-button>Create App</md-button>
+        </a>
+        <!-- <md-button><a ui-sref="apps">Apps</a></md-button> -->
+        <span flex="55"></span>
+        <span style="margin-top:-10px;">
+          <i class="material-icons" style="font-size:30px;position:relative;top:10px">account_circle</i> Welcome, {{username}}
+        </span>
+      </div>
+    </md-toolbar>
   </div>
 </header>
